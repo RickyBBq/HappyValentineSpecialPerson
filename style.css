@@ -31,36 +31,38 @@ body.dark-mode #stars-container { opacity: 1; }
     50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* --- THE MOON (Positioned above the Rizz Message) --- */
+/* --- CRESCENT MOON (Layered Behind Card) --- */
 #moon {
     position: absolute;
     top: -100px; 
-    right: 15%; 
-    width: 50px; height: 50px;
+    right: 5%; /* Pushed to the side to avoid overlapping central text */
+    width: 60px; height: 60px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 10px 10px 0 0 #fffdf2;
+    box-shadow: 12px 12px 0 0 #fffdf2;
     transition: transform 3.5s cubic-bezier(0.19, 1, 0.22, 1);
-    z-index: 1; /* Sits behind the card but moves into the rizz zone */
+    z-index: 1; /* Behind the card */
 }
 
 body.dark-mode #moon { 
-    /* Moves down to the rizz column area */
-    transform: translateY(420px) rotate(-10deg); 
-    filter: drop-shadow(0 0 15px rgba(255, 253, 242, 0.4));
+    transform: translateY(180px) rotate(-15deg); 
+    /* Dual glow for the "Charming Light" effect */
+    filter: drop-shadow(0 0 20px rgba(255, 253, 242, 0.5)) 
+            drop-shadow(0 0 40px rgba(255, 253, 242, 0.2));
 }
 
-/* --- THE CARD --- */
+/* --- THE CARD (Frosted Glass Effect) --- */
 .card {
     position: relative;
     background: white; padding: 30px; border-radius: 40px; text-align: center;
     width: 90%; max-width: 380px; border: 8px solid rgba(255, 255, 255, 0.6);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); 
-    z-index: 10; 
+    z-index: 10; /* Ensures content is always on top */
     transition: all 1s ease;
 }
 
 body.dark-mode .card {
+    /* Semi-transparent so moon glow peeks through */
     background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(15px);
     border-color: rgba(255, 255, 255, 0.15); 
@@ -116,18 +118,19 @@ body.dark-mode .note-tag { animation: leaf-pop 0.8s 3.2s forwards; }
 
 /* --- LAYOUT COLUMNS --- */
 .content-layout { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
-#rizz-text { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #e35d6a; margin: 0; z-index: 11; position: relative;}
+#rizz-text { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #e35d6a; margin: 0; }
 body.dark-mode #rizz-text { color: #ffb7c5; }
-.ig-button { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; text-decoration: none; padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; margin: 15px 0; position: relative; z-index: 11;}
+.ig-button { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; text-decoration: none; padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; margin: 15px 0; }
 .reveal-delay { opacity: 0; }
 body.dark-mode .reveal-delay { animation: leaf-pop 1s 3.5s forwards; }
 
-/* --- MOBILE SPECIFIC --- */
+/* --- MOBILE SPECIFIC (The Fix) --- */
 @media (max-width: 480px) {
     .card { padding: 20px; }
-    body.dark-mode #moon {
-        transform: translateY(380px) rotate(-10deg); 
-        right: 8%;
+    #moon { 
+        right: 2%; /* Pushes moon to the very edge */
+        width: 50px; height: 50px;
+        box-shadow: 10px 10px 0 0 #fffdf2;
     }
     .visual-container { gap: 10px; height: 170px; }
     .image-frame { width: 90px; height: 120px; }
