@@ -31,38 +31,37 @@ body.dark-mode #stars-container { opacity: 1; }
     50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* --- CRESCENT MOON (Layered Behind Card) --- */
+/* --- THE MOON (Positioned Above the Card) --- */
 #moon {
     position: absolute;
-    top: -100px; 
-    right: 5%; /* Pushed to the side to avoid overlapping central text */
+    top: -120px; 
+    right: 15%; 
     width: 60px; height: 60px;
     background: transparent;
     border-radius: 50%;
     box-shadow: 12px 12px 0 0 #fffdf2;
     transition: transform 3.5s cubic-bezier(0.19, 1, 0.22, 1);
-    z-index: 1; /* Behind the card */
+    z-index: 1; 
 }
 
 body.dark-mode #moon { 
-    transform: translateY(180px) rotate(-15deg); 
-    /* Dual glow for the "Charming Light" effect */
+    /* Moves the moon into the sky area ABOVE the card */
+    transform: translateY(110px) rotate(-15deg); 
     filter: drop-shadow(0 0 20px rgba(255, 253, 242, 0.5)) 
             drop-shadow(0 0 40px rgba(255, 253, 242, 0.2));
 }
 
-/* --- THE CARD (Frosted Glass Effect) --- */
+/* --- THE CARD --- */
 .card {
     position: relative;
     background: white; padding: 30px; border-radius: 40px; text-align: center;
     width: 90%; max-width: 380px; border: 8px solid rgba(255, 255, 255, 0.6);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); 
-    z-index: 10; /* Ensures content is always on top */
+    z-index: 10; 
     transition: all 1s ease;
 }
 
 body.dark-mode .card {
-    /* Semi-transparent so moon glow peeks through */
     background: rgba(255, 255, 255, 0.08); 
     backdrop-filter: blur(15px);
     border-color: rgba(255, 255, 255, 0.15); 
@@ -116,7 +115,7 @@ body.dark-mode .image-frame { animation: leaf-pop 1s 2.8s forwards; }
 .note-tag { font-family: 'Dancing Script', cursive; font-size: 0.9rem; color: white; background: #e35d6a; padding: 5px 10px; border-radius: 10px; opacity: 0; max-width: 150px; text-align: center; }
 body.dark-mode .note-tag { animation: leaf-pop 0.8s 3.2s forwards; }
 
-/* --- LAYOUT COLUMNS --- */
+/* --- CONTENT --- */
 .content-layout { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
 #rizz-text { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #e35d6a; margin: 0; }
 body.dark-mode #rizz-text { color: #ffb7c5; }
@@ -124,13 +123,12 @@ body.dark-mode #rizz-text { color: #ffb7c5; }
 .reveal-delay { opacity: 0; }
 body.dark-mode .reveal-delay { animation: leaf-pop 1s 3.5s forwards; }
 
-/* --- MOBILE SPECIFIC (The Fix) --- */
+/* --- MOBILE SPECIFIC FIXES --- */
 @media (max-width: 480px) {
     .card { padding: 20px; }
-    #moon { 
-        right: 2%; /* Pushes moon to the very edge */
-        width: 50px; height: 50px;
-        box-shadow: 10px 10px 0 0 #fffdf2;
+    body.dark-mode #moon {
+        transform: translateY(80px) rotate(-15deg); /* Higher on mobile to avoid overlap */
+        right: 10%;
     }
     .visual-container { gap: 10px; height: 170px; }
     .image-frame { width: 90px; height: 120px; }
