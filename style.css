@@ -31,24 +31,23 @@ body.dark-mode #stars-container { opacity: 1; }
     50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* --- THE MOON (Positioned Above the Card) --- */
+/* --- THE MOON (Positioned above the Rizz Message) --- */
 #moon {
     position: absolute;
-    top: -120px; 
+    top: -100px; 
     right: 15%; 
-    width: 60px; height: 60px;
+    width: 50px; height: 50px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 12px 12px 0 0 #fffdf2;
+    box-shadow: 10px 10px 0 0 #fffdf2;
     transition: transform 3.5s cubic-bezier(0.19, 1, 0.22, 1);
-    z-index: 1; 
+    z-index: 1; /* Sits behind the card but moves into the rizz zone */
 }
 
 body.dark-mode #moon { 
-    /* Moves the moon into the sky area ABOVE the card */
-    transform: translateY(110px) rotate(-15deg); 
-    filter: drop-shadow(0 0 20px rgba(255, 253, 242, 0.5)) 
-            drop-shadow(0 0 40px rgba(255, 253, 242, 0.2));
+    /* Moves down to the rizz column area */
+    transform: translateY(420px) rotate(-10deg); 
+    filter: drop-shadow(0 0 15px rgba(255, 253, 242, 0.4));
 }
 
 /* --- THE CARD --- */
@@ -115,20 +114,20 @@ body.dark-mode .image-frame { animation: leaf-pop 1s 2.8s forwards; }
 .note-tag { font-family: 'Dancing Script', cursive; font-size: 0.9rem; color: white; background: #e35d6a; padding: 5px 10px; border-radius: 10px; opacity: 0; max-width: 150px; text-align: center; }
 body.dark-mode .note-tag { animation: leaf-pop 0.8s 3.2s forwards; }
 
-/* --- CONTENT --- */
+/* --- LAYOUT COLUMNS --- */
 .content-layout { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px; }
-#rizz-text { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #e35d6a; margin: 0; }
+#rizz-text { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #e35d6a; margin: 0; z-index: 11; position: relative;}
 body.dark-mode #rizz-text { color: #ffb7c5; }
-.ig-button { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; text-decoration: none; padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; margin: 15px 0; }
+.ig-button { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; text-decoration: none; padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; margin: 15px 0; position: relative; z-index: 11;}
 .reveal-delay { opacity: 0; }
 body.dark-mode .reveal-delay { animation: leaf-pop 1s 3.5s forwards; }
 
-/* --- MOBILE SPECIFIC FIXES --- */
+/* --- MOBILE SPECIFIC --- */
 @media (max-width: 480px) {
     .card { padding: 20px; }
     body.dark-mode #moon {
-        transform: translateY(80px) rotate(-15deg); /* Higher on mobile to avoid overlap */
-        right: 10%;
+        transform: translateY(380px) rotate(-10deg); 
+        right: 8%;
     }
     .visual-container { gap: 10px; height: 170px; }
     .image-frame { width: 90px; height: 120px; }
