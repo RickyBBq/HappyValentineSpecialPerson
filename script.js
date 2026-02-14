@@ -41,19 +41,21 @@ function generateSurprise() {
 
 function resetPage() {
     document.body.classList.remove('dark-mode');
-    document.getElementById('stars-container').innerHTML = ''; // Clear stars
+    document.getElementById('stars-container').innerHTML = ''; 
     document.getElementById('result-screen').classList.add('hidden');
     document.getElementById('input-screen').classList.remove('hidden');
-    document.getElementById('userName').value = ''; // Reset input
+    document.getElementById('userName').value = ''; 
 }
 
 function createStars() {
     const container = document.getElementById('stars-container');
     container.innerHTML = ''; 
-    for (let i = 0; i < 50; i++) {
+    // Responsive star count
+    const starCount = window.innerWidth < 480 ? 35 : 70;
+    for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'star';
-        const size = Math.random() * 3 + 'px';
+        const size = Math.random() * 2 + 1 + 'px';
         star.style.width = size;
         star.style.height = size;
         star.style.left = Math.random() * 100 + 'vw';
@@ -63,7 +65,7 @@ function createStars() {
     }
 }
 
-// Background petals logic
+// Background petals
 (function initPetals() {
     for (let i = 0; i < 15; i++) {
         let p = document.createElement('div');
