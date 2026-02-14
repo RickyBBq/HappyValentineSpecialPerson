@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Midnight Bloom for You</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="moon"></div>
+    <div id="petal-container"></div>
+
+    <div class="container">
+        <div id="input-screen" class="card">
+            <div class="envelope-icon">💌</div>
+            <h1 class="title">Hey, what's your name?</h1>
+            <div class="input-area">
+                <input type="text" id="userName" placeholder="Enter name here..." autocomplete="off">
+                <button class="main-btn" onclick="generateSurprise()">Show Me ✨</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="card hidden">
+            <h2 id="personalized-message">Hi, (Name)!</h2>
+            
+            <div class="visual-container">
+                <div class="tulip">
+                    <div class="stem"></div>
+                    <div class="leaf leaf-left"></div>
+                    <div class="leaf leaf-right"></div>
+                    <div class="tulip-head">
+                        <div class="p p-back"></div>
+                        <div class="p p-left"></div>
+                        <div class="p p-right"></div>
+                        <div class="p p-front"></div>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <div class="image-frame">
+                        <img id="random-pic" src="" alt="Valentine Photo">
+                    </div>
+                    <div class="note-tag">flower for you</div>
+                </div>
+            </div>
+
+            <p id="rizz-text"></p>
+
+            <div id="footer-area" class="reveal-delay">
+                <p class="thanks-note">thankyou</p>
+                <a href="https://instagram.com/YOUR_USERNAME" target="_blank" class="ig-button">
+                    <span class="ig-icon">📸</span> Connect with me
+                </a>
+            </div>
+
+            <button class="reset-btn" onclick="location.reload()">Reset</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
