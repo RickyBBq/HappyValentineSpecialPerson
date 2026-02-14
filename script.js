@@ -50,16 +50,15 @@ function resetPage() {
 function createStars() {
     const container = document.getElementById('stars-container');
     container.innerHTML = ''; 
-    // Responsive star count
-    const starCount = window.innerWidth < 480 ? 35 : 70;
+    const starCount = window.innerWidth < 480 ? 30 : 60;
     for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'star';
-        const size = Math.random() * 2 + 1 + 'px';
-        star.style.width = size;
-        star.style.height = size;
+        star.style.width = Math.random() * 2 + 1 + 'px';
+        star.style.height = star.style.width;
         star.style.left = Math.random() * 100 + 'vw';
         star.style.top = Math.random() * 100 + 'vh';
+        star.style.zIndex = "0"; // Stars at the very back
         star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
         container.appendChild(star);
     }
