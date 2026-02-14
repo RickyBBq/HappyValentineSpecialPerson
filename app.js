@@ -20,11 +20,11 @@ function generateSurprise() {
 
     // Add your 5 image names here
     const myImages = [
-        "pic1.jpg", 
-        "pic2.jpg", 
-        "pic3.jpg", 
-        "pic4.jpg", 
-        "pic5.jpg"
+        "https://i.ibb.co/2fP1WVS/1001819e53f22d7f795d8e177d1d82b5.jpg", 
+        "https://i.ibb.co/Xf8kbvBh/4fe59d0b792f4f7cee7f2fa396deb7e7.jpg", 
+        "https://i.ibb.co/dwypmsMM/a996754e4c4f72de83c608e926569d04.jpg", 
+        "https://i.ibb.co/Jw0ZL9gd/8f9be8ca7a3ef3fa68aed92b0db68323.jpg", 
+        "https://i.ibb.co/3yBj3LSR/37a6bcec79d7ebd088a5209463ff00e5.jpg"
     ];
 
     // Switch to dark mode and show result screen
